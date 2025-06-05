@@ -36,6 +36,9 @@ function executeAnimation(svgFile, elements) {
         case "pow.svg":
             applyAnimationClass(elements, "pow-animation");
             break;
+        case "ucom.svg":
+            applyAnimationClass(elements, "ucom-animation");
+            break;
         // Weitere Fälle für andere SVG-Dateien
         default:
             console.warn(`Keine Animation für ${svgFile} definiert.`);
