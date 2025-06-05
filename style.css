@@ -4,12 +4,79 @@ body {
     padding: 0;
 }
 
-header, footer {
-    background-color: #f2f2f2;
-    text-align: center;
-    padding: 1em 0;
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Vollbildhöhe */
+    width: 100vw; /* Vollbildbreite */
 }
 
-main {
-    padding: 1em;
+.container-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Spalten */
+    gap: 0.5em; /* Abstand zwischen den Containern */
+    box-sizing: border-box; /* Einschließen von Padding und Border in die Größe */
+
+    /* Dynamische Größe für das Quadrat */
+    width: min(90vw, 90vh); /* Nimmt die kleinere Dimension */
+    height: min(90vw, 90vh); /* Nimmt die kleinere Dimension */
+}
+
+.container {
+    background-color: #e0e0e0; /* Hintergrundfarbe */
+    border: 2px solid #ccc; /* Rand */
+    aspect-ratio: 1 / 1; /* Quadratische Container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Allgemeine SVG-Stile */
+.container svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+
+/* Keyframes für Herzschlag */
+@keyframes powHeartbeat {
+    0% {
+        transform: scale(0.95); /* Normale Größe */
+    }
+    25% {
+        transform: scale(0.97); /* Leicht vergrößert */
+    }
+    100% {
+        transform: scale(0.95); /* Zurück zur normalen Größe */
+    }
+}
+
+/* Animation für Pow */
+.container[data-svg="pow.svg"] svg * :not(rect) {
+    animation: powHeartbeat 1s infinite ease-in-out;
+    transform-origin: center; /* Setzt den Ursprung der Skalierung auf das Zentrum */
+}
+
+/* Keyframes für sinusförmige Bewegung */
+@keyframes kreiseSinusAnimation {
+    0% {
+        transform: translateY(-60px); 
+    }
+   
+    50% {
+        transform: translateY(20px); 
+    }
+    100% {
+        transform: translateY(-60px); 
+    }
+}
+
+/* Animation für Kreise */
+.container[data-svg="kreise.svg"] svg *:not(rect) {
+    animation: kreiseSinusAnimation 6s infinite ease-in-out;
+    animation-delay: calc(var(--index) * 0.6s); /* Dynamische Verzögerung */
 }
