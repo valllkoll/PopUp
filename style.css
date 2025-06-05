@@ -4,12 +4,73 @@ body {
     padding: 0;
 }
 
-header, footer {
-    background-color: #f2f2f2;
-    text-align: center;
-    padding: 1em 0;
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Vollbildhöhe */
+    width: 100vw; /* Vollbildbreite */
 }
 
-main {
-    padding: 1em;
+.container-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Spalten */
+    gap: 0.5em; /* Abstand zwischen den Containern */
+    box-sizing: border-box; /* Einschließen von Padding und Border in die Größe */
+
+    /* Dynamische Größe für das Quadrat */
+    width: min(90vw, 90vh); /* Nimmt die kleinere Dimension */
+    height: min(90vw, 90vh); /* Nimmt die kleinere Dimension */
+}
+
+.container {
+    background-color: #e0e0e0; /* Hintergrundfarbe */
+    border: 2px solid #ccc; /* Rand */
+    aspect-ratio: 1 / 1; /* Quadratische Container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Testfarben für die Container */
+.container:nth-child(1) {
+    background-color: #f9d71c; /* Gelb */
+}
+
+.container:nth-child(2) {
+    background-color: #1b9a59; /* Grün */
+}
+
+.container:nth-child(3) {
+    background-color: #e44427; /* Rot */
+}
+
+.container:nth-child(4) {
+    background-color: #dad4c6; /* Beige */
+}
+
+.container:nth-child(5) {
+    background-color: #4a90e2; /* Blau */
+}
+
+.container:nth-child(6) {
+    background-color: #f39c12; /* Orange */
+}
+
+.container:nth-child(7) {
+    background-color: #8e44ad; /* Lila */
+}
+
+.container:nth-child(8) {
+    background-color: #2ecc71; /* Hellgrün */
+}
+
+.container:nth-child(9) {
+    background-color: #34495e; /* Dunkelgrau */
+
+}.container svg {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
