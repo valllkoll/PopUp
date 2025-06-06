@@ -82,7 +82,7 @@ main {
 }
 
 /* Keyframes für Rotation */
-@keyframes ucomRotate {
+@keyframes ucomAnimation {
     0% {
         transform: rotate(0deg);
     }
@@ -92,7 +92,7 @@ main {
 }
 
 /* Nur weiße SVG-Elemente rotieren */
-.container[data-svg="ucom.svg"] svg *[style*="fill:#dddac5"] {
-    animation: ucomRotate 4s linear infinite;
+.container[data-svg="ucom.svg"] svg *:not(rect){
+    animation: ucomAnimation 20s linear infinite;
     transform-origin: 50% 50%;
 }

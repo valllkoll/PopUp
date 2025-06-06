@@ -19,5 +19,5 @@
   <circle cx="405" cy="405" r="165" fill="#e64325" />
 
   <!-- Kleiner heller Kreis in der Mitte -->
-  <circle cx="405" cy="405" r="7" fill="#dddac5" />
+  <circle cx="405" cy="405" r="15" fill="#dddac5" />
 </svg>
