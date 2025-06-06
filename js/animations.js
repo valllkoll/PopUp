@@ -5,12 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const svgFile = container.getAttribute("data-svg");
 
         if (svgFile) {
-            fetch(`SVG/${svgFile}`)
+            fetch(`svg/${svgFile}`)
                 .then(response => response.text())
                 .then(svgContent => {
                     container.innerHTML = svgContent;
 
-                    const svgElement = container.querySelector("#svg-grid");
+                    const svgElement = container.querySelector("svg");
                     const elements = Array.from(svgElement.children); // Alle SVG-Elemente sammeln
 
                     // Füge jedem Element eine individuelle Verzögerung hinzu
