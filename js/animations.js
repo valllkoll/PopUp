@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(svgContent => {
                     container.innerHTML = svgContent;
 
-                    const svgElement = container.querySelector("svg");
+                    const svgElement = container.querySelector("#svg-grid");
                     const elements = Array.from(svgElement.children); // Alle SVG-Elemente sammeln
 
                     // Füge jedem Element eine individuelle Verzögerung hinzu
