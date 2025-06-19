@@ -11,16 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     container.innerHTML = svgContent;
 
                     const svgElement = container.querySelector("svg");
-                    const elements = Array.from(svgElement.children); // Alle SVG-Elemente sammeln
-
-                    // Füge jedem Element eine individuelle Verzögerung hinzu
+                    const elements = svgElement.querySelectorAll("*");
                     elements.forEach((element, index) => {
-                        element.style.setProperty("--index", index); // Dynamische Verzögerung
-                        console.log(elements); // Überprüfe, ob die `<path>`-Elemente korrekt gesammelt werden
+                    element.style.setProperty("--index", index);
                     });
+                    executeAnimation(svgFile, Array.from(elements));
 
-                    // Animation basierend auf dem Bild starten
-                    executeAnimation(svgFile, elements);
                 })
                 .catch(error => console.error(`Error loading SVG: ${svgFile}`, error));
         }
@@ -33,12 +29,21 @@ function executeAnimation(svgFile, elements) {
         case "kreise.svg":
             applyAnimationClass(elements, "kreise-animation");
             break;
-        case "pow.svg":
-            applyAnimationClass(elements, "pow-animation");
-            break;
         case "ucom.svg":
             applyAnimationClass(elements, "ucom-animation");
             break;
+        case "blobs.svg":
+            applyAnimationClass(elements, "blobs-animation");
+            break;
+        case "quads.svg":
+            const count = elements.length;
+            elements.forEach((el, i) => {
+                const spin = (90 * i / (count - i));
+                el.style.setProperty('--spin-end', `${spin}deg`);
+                el.style.setProperty('--spin-other', `${spin * -0.1}deg`);
+            });
+            applyAnimationClass(elements, "quads-animation");
+    break;
         // Weitere Fälle für andere SVG-Dateien
         default:
             console.warn(`Keine Animation für ${svgFile} definiert.`);

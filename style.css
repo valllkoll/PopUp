@@ -42,23 +42,25 @@ main {
 
 
 
-/* Keyframes für Herzschlag */
-@keyframes powHeartbeat {
+/* Keyframes für Blobs-Pulsation */
+@keyframes blobsPulse {
     0% {
-        transform: scale(0.95); /* Normale Größe */
+        transform: scale(0.995); /* Normale Größe */
     }
     25% {
-        transform: scale(0.97); /* Leicht vergrößert */
+        transform: scale(1.01); /* Leicht vergrößert */
     }
     100% {
-        transform: scale(0.95); /* Zurück zur normalen Größe */
+        transform: scale(0.995); /* Zurück zur normalen Größe */
     }
 }
 
-/* Animation für Pow */
-.container[data-svg="pow.svg"] svg * :not(rect) {
-    animation: powHeartbeat 1s infinite ease-in-out;
-    transform-origin: center; /* Setzt den Ursprung der Skalierung auf das Zentrum */
+/* Animation für Blobs */
+.container[data-svg="blobs.svg"] svg *:not(rect) {
+    animation: blobsPulse 2s infinite ease-in-out;
+    transform-origin: center; 
+   
+    animation-delay: calc(var(--index) * -1.5s);
 }
 
 /* Keyframes für sinusförmige Bewegung */
@@ -95,4 +97,36 @@ main {
 .container[data-svg="ucom.svg"] svg *:not(rect){
     animation: ucomAnimation 20s linear infinite;
     transform-origin: 50% 50%;
+}
+
+@keyframes quadsSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        /* Die Endrotation wird per CSS-Variable gesetzt */
+        transform: rotate(var(--spin-other, 0deg));
+    }
+    40% {
+        /* Die Endrotation wird per CSS-Variable gesetzt */
+        transform: rotate(var(--spin-end, 0deg));
+    }
+    70% {
+        /* Die Endrotation wird per CSS-Variable gesetzt */
+        transform: rotate(var(--spin-other, 0deg));
+    }
+     80% {
+        transform: rotate(0deg);
+    }
+}
+
+.container[data-svg="quads.svg"] svg * {
+    /* Standardmäßig keine Drehung */
+    --spin-end: 0deg;
+    animation: quadsSpin 4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.quads-animation {
+    /* leer, dient nur als Marker für die Animation */
 }
