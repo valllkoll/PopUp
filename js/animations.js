@@ -55,6 +55,9 @@ function executeAnimation(svgFile, elements) {
         case "berge.svg":
             applyAnimationClass(elements, "berge-animation");
             break;
+        case "blume.svg":
+            applyAnimationClass(elements, "blume-animation");
+            break;
         // Weitere Fälle für andere SVG-Dateien
         default:
             console.warn(`Keine Animation für ${svgFile} definiert.`);

@@ -45,21 +45,22 @@ main {
 /* Keyframes für Blobs-Pulsation */
 @keyframes blobsPulse {
     0% {
-        transform: scale(0.995); /* Normale Größe */
+        transform: scale(0.95); /* Normale Größe */
     }
     25% {
         transform: scale(1.01); /* Leicht vergrößert */
     }
+   
     100% {
-        transform: scale(0.995); /* Zurück zur normalen Größe */
+        transform: scale(0.95); /* Zurück zur normalen Größe */
     }
 }
 
 /* Animation für Blobs */
-.container[data-svg="blobs.svg"] svg *:not(rect) {
+.container[data-svg="blobs.svg"] svg path {
     animation: blobsPulse 2s infinite ease-in-out;
-    transform-origin: center; 
-    animation-delay: calc(var(--index) * -1.5s);
+    transform-box: fill-box;
+    animation-delay: calc(var(--index) * -0.34s);
 }
 
 /* Keyframes für sinusförmige Bewegung */
@@ -181,4 +182,27 @@ main {
 .container[data-svg="berge.svg"] svg g g g g path {
     animation: bergeAnimation 5s infinite ease-in-out;
     animation-delay: calc(var(--nr) * -0.25s); /* Dynamische Verzögerung */
+}
+
+@keyframes blumeAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    43% {
+        transform: rotate(0deg);
+    }50% {
+        transform: rotate(-10deg);
+    }
+    95% {
+        transform: rotate(365deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.container[data-svg="blume.svg"] svg *:not(rect, g) {
+    /* Standardmäßig keine Drehung */
+    animation: blumeAnimation 5s ease-in-out infinite;
+    transform-origin: center;
 }
