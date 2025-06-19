@@ -59,7 +59,6 @@ main {
 .container[data-svg="blobs.svg"] svg *:not(rect) {
     animation: blobsPulse 2s infinite ease-in-out;
     transform-origin: center; 
-   
     animation-delay: calc(var(--index) * -1.5s);
 }
 
@@ -95,7 +94,7 @@ main {
 
 /* Nur weiße SVG-Elemente rotieren */
 .container[data-svg="ucom.svg"] svg *:not(rect){
-    animation: ucomAnimation 20s linear infinite;
+    animation: ucomAnimation 6s linear infinite;
     transform-origin: 50% 50%;
 }
 
@@ -137,11 +136,11 @@ main {
     0% {
         opacity: 0; 
     } 
-    20% {
+    40% {
         opacity: 0; 
     }
    
-    25% {
+    45% {
         opacity: 1;     
     }
     95% {
@@ -155,6 +154,31 @@ main {
 /* Animation für Karte */
 /* .container[data-svg="karte.svg"] svg .karte-animation{ */
 .container[data-svg="karte.svg"] svg > g > path {
-    animation: karteAnimation 10s infinite linear;
-    animation-delay: calc(var(--index) * -0.15s); /* Dynamische Verzögerung */
+    animation: karteAnimation 5s infinite linear;
+    animation-delay: calc(var(--index) * -0.1s); /* Dynamische Verzögerung */
+}
+
+
+@keyframes bergeAnimation {
+    0% {
+        transform: translateY(80px); 
+    }
+    20% {
+        transform: translateY(-100px); 
+    }
+    50% {
+        transform: translateY(-100px); 
+    }
+    65% {
+        transform: translateY(80px); 
+    }
+    100% {
+        transform: translateY(80px); 
+    }
+}
+
+/* Animation für Berge */
+.container[data-svg="berge.svg"] svg g g g g path {
+    animation: bergeAnimation 5s infinite ease-in-out;
+    animation-delay: calc(var(--nr) * -0.25s); /* Dynamische Verzögerung */
 }
