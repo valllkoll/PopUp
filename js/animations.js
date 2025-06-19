@@ -38,12 +38,16 @@ function executeAnimation(svgFile, elements) {
         case "quads.svg":
             const count = elements.length;
             elements.forEach((el, i) => {
-                const spin = (90 * i / (count - i));
+                const spin = (200 * i / (count - i));
                 el.style.setProperty('--spin-end', `${spin}deg`);
                 el.style.setProperty('--spin-other', `${spin * -0.1}deg`);
             });
             applyAnimationClass(elements, "quads-animation");
-    break;
+            break;
+        case "karte.svg":
+            applyAnimationClass(elements, "karte-animation");
+            break;
+
         // Weitere Fälle für andere SVG-Dateien
         default:
             console.warn(`Keine Animation für ${svgFile} definiert.`);
