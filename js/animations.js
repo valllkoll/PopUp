@@ -58,6 +58,9 @@ function executeAnimation(svgFile, elements) {
         case "blume.svg":
             applyAnimationClass(elements, "blume-animation");
             break;
+        case "brueder.svg":
+            applyAnimationClass(elements, "brueder-animation");
+            break;
         // Weitere Fälle für andere SVG-Dateien
         default:
             console.warn(`Keine Animation für ${svgFile} definiert.`);
@@ -72,7 +75,7 @@ function applyAnimationClass(elements, animationClass) {
 }
 
 
-
+// Augen Animation
 function animateEyeClose(pathElement) {
     let t = 0;
     const waitFrames = 120; 

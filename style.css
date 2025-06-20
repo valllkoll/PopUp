@@ -206,3 +206,24 @@ main {
     animation: blumeAnimation 5s ease-in-out infinite;
     transform-origin: center;
 }
+
+@keyframes bergeAnimation {
+    0% {
+        transform: translateX(200px); 
+    }
+    20% {
+        transform: translateX(0px); 
+    }
+    80% {
+        transform: translateX(0px); 
+    }
+    100% {
+        transform: translateX(200px); 
+    }
+}
+
+/* Animation für Berge */
+.container[data-svg="brueder.svg"] svg g g g path {
+    animation: bergeAnimation 5s infinite ease-in-out;
+    animation-delay: calc(var(--nr) * -.3s); /* Dynamische Verzögerung */
+}
